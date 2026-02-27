@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Thư mời HNNLĐ Phòng KT - Ông Việt </title> 
+    <title>Thư mời HNNLĐ Phòng TCKT - Ông Việt </title> 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #020811;
-            --envelope-color: #041a3a;
-            --envelope-inner: #06214a;
-            --gold-primary: #c5a059;
+            /* Tông màu xanh từ Logo 80 năm Garco 10 */
+            --bg-color: #004a99; 
+            --envelope-color: #003366;
+            --envelope-inner: #002244;
+            --gold-primary: #c5a059; 
             --gold-light: #f1e0b5;
             --gold-dark: #8a6d3b;
+            --blue-light: #4fb3ff;
         }
 
         * {
@@ -27,7 +29,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #0a2a5a 0%, #020811 100%);
+            /* Nền Gradient tông xanh Garco 10 */
+            background: radial-gradient(circle at center, #0056b3 0%, #001a33 100%);
             overflow: hidden;
             font-family: 'Montserrat', sans-serif;
             touch-action: none;
@@ -68,13 +71,13 @@
             font-weight: 400;
             letter-spacing: 3px;
             margin-bottom: 5px;
-            text-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+            text-shadow: 0 0 10px rgba(79, 179, 255, 0.4);
         }
 
         .arrow-svg {
             width: 40px;
             height: 40px;
-            fill: var(--gold-primary);
+            fill: var(--blue-light);
             animation: bounce 2s infinite;
         }
 
@@ -98,7 +101,7 @@
             width: 100%;
             height: 100%;
             background: var(--envelope-inner);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
             border-bottom: 2px solid var(--gold-dark);
             transform-style: preserve-3d;
         }
@@ -179,7 +182,7 @@
             background: radial-gradient(circle, var(--gold-light), var(--gold-primary), var(--gold-dark));
             border-radius: 50%;
             z-index: 100;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -203,7 +206,7 @@
             top: 0;
             left: 0;
             background-color: #fff;
-            background-size: contain; 
+            background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -218,18 +221,16 @@
 
         .envelope-wrapper.open .lid { transform: rotateX(180deg); z-index: 1; }
         
-        /* CẬP NHẬT TỈ LỆ NGANG 1748x1240 CHO MOBILE */
         .envelope-wrapper.open .letters-stack {
             width: 95vw;
-            aspect-ratio: 1748 / 1240; /* Tỉ lệ ngang mới */
+            aspect-ratio: 1748 / 1240;
             height: auto; 
-            max-height: 80vh; /* Đảm bảo không tràn chiều cao màn hình */
+            max-height: 80vh; 
             bottom: 50%; 
             transform: translate3d(-50%, 50%, 20px); 
             z-index: 100;
         }
 
-        /* CẬP NHẬT CHO DESKTOP */
         @media (min-width: 768px) {
             .envelope-wrapper.open .letters-stack {
                 width: 70vw;
@@ -303,9 +304,9 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         .dot.active {
-            background: var(--gold-primary);
+            background: var(--blue-light);
             transform: scale(1.3);
-            box-shadow: 0 0 10px var(--gold-primary);
+            box-shadow: 0 0 10px var(--blue-light);
         }
 
         @media (max-width: 600px) {
@@ -343,7 +344,7 @@
                     </div>
                 </div>
 
-                <div class="seal">PKT</div> 
+                <div class="seal">P.TCKT</div> 
             </div>
         </div>
         
@@ -440,7 +441,7 @@
             setActiveDot(0);
         }
 
-        // Particles Animation
+        // Particles Animation - Màu xanh lấp lánh
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -462,7 +463,7 @@
                 if (this.y < -10) this.reset();
             }
             draw() {
-                ctx.fillStyle = `rgba(241, 224, 181, ${this.opacity})`;
+                ctx.fillStyle = `rgba(79, 179, 255, ${this.opacity})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -477,5 +478,4 @@
         animate();
     </script>
 </body>
-
 </html>
